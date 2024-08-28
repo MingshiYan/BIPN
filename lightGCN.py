@@ -57,7 +57,7 @@ class LightGCN(nn.Module):
             in_embs = torch.sparse.mm(self.A_adj_matrix.to(self.device), in_embs)
             in_embs = F.normalize(in_embs, dim=-1)
             result.append(in_embs / (i + 1))
-            result.append(in_embs)
+            # result.append(in_embs)
 
         result = torch.stack(result, dim=0)
         result = torch.sum(result, dim=0)
